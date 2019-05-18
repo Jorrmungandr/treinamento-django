@@ -11,6 +11,7 @@ class PostForm(forms.ModelForm):
         }
 
     def save(self, commit=True):
+
         self.instance.author = self.initial['author']
         self.instance.save()
         return super().save()

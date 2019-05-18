@@ -40,10 +40,17 @@ class CreatePostView(generic.CreateView):
     model = Post
     form_class = PostForm
 
-    print('view')
-    def get_sucess_url(self):
+    #   
+    #   O teu erro tava nessa função:
+    #   Tu tava chamando get_sucess_url e é get_success_url
+    #
+    # def get_sucess_url(self):
+    #     return reverse_lazy('core:index')
+
+    def get_success_url(self):
         return reverse_lazy('core:index')
-    print('post')
+
+    
     def get_initial(self):
         return {'author': self.request.user}
         
